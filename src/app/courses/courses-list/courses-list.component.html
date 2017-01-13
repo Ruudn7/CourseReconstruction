@@ -1,1 +1,40 @@
 <h3>Lista instruktorów</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Typ</td>
+      <td>Status</td>
+      <td>Numer</td>
+      <td>Szef szkolenia</td>
+      <td>Data Rozpoczęcia</td>
+      <td>Miejsce</td>
+    </tr>
+  </thead>
+  <!--jeżlei podany jest users to zrób tbody-->
+  <tbody *ngIf="users">
+    <tr *ngFor="let course of courses" >        <!-- czyli ze wszystkich zmiennych coutses jeden (powiedzmy iterowany) element to course -->
+      <td>
+          {{course.type}}                    <!-- pobrane z fora obiekty z courses mają type,status itd, {{}} oznacza że angularofa funkcja wyświetlania-->
+      </td>
+      <td>
+          {{course.status}}
+      </td>
+      <td>
+        <a href="" [routerLink]="['/courses', course._id]">      <!--przenieś na stronę z końcówką courses-->
+          {{course.number || '??'}}/{{course.numberYear || '??'}}/{{course.type}}
+        </a>
+
+
+      </td>
+      <td>
+        {{checkSomethink(course.chef)}}
+      </td>
+      <td>
+        {{course.dateFirtsStart}}
+      </td>
+      <td>
+        {{course.place}}
+      </td>
+    </tr>
+  </tbody>
+</table>
