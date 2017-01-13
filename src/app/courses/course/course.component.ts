@@ -79,7 +79,7 @@ export class CourseComponent implements OnInit {
     if(this.isEditAble){
 
       //check is zatwierdzony==status
-      if(course.status == 'zatwierdzony' && !course.number)
+      if(course.status == 'zatwierdzony' && !course.number)       //jeżeli jest zatwierdzony po raz pierwszy (nie ma jeszcze numeru)
         this.addNumberCourse(course)
       else
         this.updateCourse(course)
@@ -88,10 +88,10 @@ export class CourseComponent implements OnInit {
   } else {
 
     course.status = 'Roboczy';
-      this.coursesService
-        .addCourse(course)
+      this.coursesService                          //odwołuje się do backendu ale jeszcze nie pobiera
+        .addCourse(course)                         // wywołuje funkcje z html add i dodaje kurs
         .subscribe(
-          resUser => this.router.navigateByUrl('/courses'),
+          resUser => this.router.navigateByUrl('/courses'),     //obojętna prawa strona, przekierowanie użytkowanika na listę kursów
           error => this.errorMessage = <any>error
         )
     }
@@ -122,7 +122,7 @@ export class CourseComponent implements OnInit {
   }
 
 
-    isCorrectStatus() {
+    isCorrectStatus() {                                             // czy możliwe jest rozwijanie pierwszej częsci listy
       if(this.course.status == 'zatwierdzony'
         || this.course.status == 'zmieniony'
         || this.course.status == 'zakończony'
