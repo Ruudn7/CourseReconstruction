@@ -21,13 +21,13 @@
       </td>
       <td>
         <a href="" [routerLink]="['/courses', course._id]">      <!--przenieś na stronę z końcówką courses-->
-          {{course.number || '??'}}/{{course.numberYear || '??'}}/{{course.type}}
+          {{course.number || '??'}}/{{course.numberYear || '??'}}/{{course.type}}   <!--wyświetla numer kursu lub ?? kiedy nie jest nadany (kurs nie zatwierdzony)-->
         </a>
 
 
       </td>
       <td>
-        {{checkSomethink(course.chef)}}
+        {{checkSomethink(course.chef)}}        <!--wyświetla prowadzącego kurs-->   
       </td>
       <td>
         {{course.dateFirtsStart}}
