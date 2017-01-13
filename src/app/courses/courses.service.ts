@@ -43,16 +43,17 @@ export class CoursesService {
 
 
   addCourse(course: Courses) {
+
     return this.http.get(this.url + 'courses/', course)
               .map( (response: Response) => response.json())
               .catch( this.handleError);
-
   }
+
+
+
   private handleError (error: any) {
     let msg = `Status code ${error.status} na url ${error.url}`;
     console.error(msg);
     return Observable.throw(msg);
   }
-
-
 }
