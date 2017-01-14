@@ -8,7 +8,7 @@
         <!--<li><a href="#">Link </a></li>-->
         <li><a href="#">Główna Strona</a></li>
         <li class="dropdown" dropdown [(isOpen)]="status.isopen">
-          <a dropdownToggle href="#" class="dropdown-toggle" >Instruktorzy <span class="caret"></span></a>
+          <a dropdownToggle class="dropdown-toggle" >Instruktorzy <span class="caret"></span></a>
           <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
             <li><a [routerLink]="['/users']" href="">Lista instruktorów</a></li>
             <li><a [routerLink]="['/add-user']" href="">Dodaj instruktora</a></li>
