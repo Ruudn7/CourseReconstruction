@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
+import { AlertModule } from 'ng-bootstrap/components/alert';
+
 
 @Component({
   selector: 'app-login',
