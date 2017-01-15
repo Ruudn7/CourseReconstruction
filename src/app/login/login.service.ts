@@ -18,9 +18,6 @@ export class LoginService {
     private http: Http
   ) { }
 
-
-
-
   login() {
     this.isLoggedIn = true;
     return this.isLoggedIn;
@@ -30,6 +27,16 @@ export class LoginService {
     this.isLoggedIn = false;
   }
 
+  checkUser(user) {
+    return this.http.post(this.url + 'login', user)
+      .map( (response: Response) => response.json())
+      .catch(this.handleError) ;
+  }
 
+  private handleError( error: any) {
+    let msg = `Status code ${error.status} na url ${error.url}`;
+    console.error(msg);
+    return Observable.throw(msg);
+  }
 
 }
