@@ -4,7 +4,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 
-
 @Injectable()
 export class UsersService {
 
@@ -18,6 +17,14 @@ export class UsersService {
     return this.http.get(this.url + 'users')
     .map( (resonse: Response ) => resonse.json())
     .catch( this.handleError );
+  }
+
+  addUser(user) {
+    
+    return this.http.get(this.url + 'users')
+      .map( (response: Response) => response.json() )
+      .catch( this.handleError);
+
   }
 
     getUser(id) {
