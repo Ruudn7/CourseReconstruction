@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'courses/:id', component: CourseComponent, canActivate: [AuthGuardService]}
 ];
 
+
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes)
@@ -47,4 +48,4 @@ export const routableComponents =[
   CourseComponent,
   CoursesListComponent,
   LoginComponent
-]
+];

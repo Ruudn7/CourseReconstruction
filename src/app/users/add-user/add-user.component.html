@@ -1,3 +1,9 @@
-<p>
-  add-user works!
-</p>
+<div class="col-md-12 jumbotron">
+  <h3 class="col-md-offset-2">Dodaj instruktora</h3>
+  <form(ngSubmit)="add(form.value)" #form="ngForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="login" class="col-md-2 control-label">Login</label>
+      <div class="col-md-8">
+        <iniput id="login" name="user" placeholder="Login" type="text" class="col-md-10 form-control" ngModel>
+      </div>
+    </div>
