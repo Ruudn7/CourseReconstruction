@@ -1,3 +1,22 @@
-<p>
-  inspektorat works!
-</p>
+<div class="col-md-12 jumbotron">
+      <a class="pull-right btn btn-raised btn-primary" (click)="add()">Dodaj</a>
+      <div *ngIf="isNew">
+        <form (ngSubmit)="addNew(form.value)"  #form="ngForm" class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-md-2">Nazwa</label>
+            <div class="col-md-8">
+              <input class="form-control" name="name" type="text" ngModel>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="form-group">
+            <label class="control-label col-md-2">Adres</label>
+            <div class="col-md-8">
+              <textarea class="form-control" name="address" type="text" ngModel></textarea>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+            <button type="submit" class="btn btn-raised btn-success pull-right">Zapisz</button>
+        </form>
+      </div>
+      
