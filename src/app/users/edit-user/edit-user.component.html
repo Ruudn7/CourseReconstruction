@@ -1,3 +1,87 @@
-<p>
-  edit-user works!
-</p>
+<div class="col-md-12 jumbotron">
+
+    <form (ngSubmit)="edit(form.value)" #form="ngForm" *ngIf="user"  class="form-horizontal">
+      <div class="col-md-6">
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Login</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.user" name="user" placeholder="Login" type="email" class="form-control" [disabled]="true">
+          </div>
+        </div>
+        <div class="form-group" *ngIf="canSee()">
+          <label class="col-md-2 control-label">Hasło</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.password" name="password" placeholder="Hasło" type="password" class="form-control">
+          </div>
+        </div>
+         <div class="form-group" >
+          <label class="col-md-2 control-label">Imię</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.name" name="name" placeholder="Imię" type="text" class="form-control" [disabled]="canChange()">
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Nazwisko</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.surname" name="surname" placeholder="Nazwisko" type="text" class="form-control" [disabled]="canChange()">
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Stopień Instruktorski</label>
+          <div class="col-md-10">
+            <select name="zhpclass" [(ngModel)]="user.zhpclass"  class="form-control" [disabled]="canChange()">
+              <option value=""></option>
+              <option value="bez stopnia">Bez stopnia</option>
+              <option value="pwd">Przewodnik</option>
+              <option value="phm">Podharcmistrz</option>
+              <option value="hm">Harcmistrz</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Adres</label>
+          <div class="col-md-10">
+            <textarea  name="address" [(ngModel)]="user.address" id="" cols="10" rows="2" class="form-control" [disabled]="canChange()"></textarea>
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">O sobie</label>
+          <div class="col-md-10">
+            <textarea  name="about" [(ngModel)]="user.about" id="" cols="10" rows="2" class="form-control" [disabled]="canChange()"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" >
+          <label for="telephone"  class="col-md-2 control-label">Telefon</label>
+          <div class="col-md-5">
+            <input [(ngModel)]="user.ttelephone" name="telephone" placeholder="Telefon" type="text" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <div class="togglebutton">
+              <label style="font-size: 12px;">
+                <input type="chcekbox" [checked]="user.telephoneAble" name="telephoneAble" [(ngModel)]="user.telephoneAble"><span class="toggle"></span>Widoczny?
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Klasa</label>
+          <div class="col-md-10">
+            <select name="class" id="" [(ngModel)]="user.class" class="form-control" [disabled]="canChange()">
+              <option value="C">Klasa C</option>
+              <option value="B">Klasa B</option>
+              <option value="A">Klasa A</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="inspektoraty">
+          <label class="col-md-2 control-label">Inspektorat</label>
+          <div class="col-md-10">
+            <select  [(ngModel)]="user.inspektorat" name="inspektorat" id="" class="form-control" [disabled]="canChange()">
+              <option value=""></option>
+              <option *ngFor="let insp of inspektoraty" [value]="insp._id">{{insp.name}}</option>
+            </select>
+          </div>
+        </div>
+        
