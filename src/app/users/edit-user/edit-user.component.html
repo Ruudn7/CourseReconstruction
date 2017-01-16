@@ -84,3 +84,67 @@
             </select>
           </div>
         </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Numer odznaki</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.classNumber" name="classNumber" placeholder="Nazwisko" type="text" class="form-control" [disabled]="canChange()">
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-2 control-label">Rok kursu</label>
+          <div class="col-md-10">
+            <select name="classDate" id="" [(ngModel)]="user.classDate" class="form-control" [disabled]="canChange()">
+              <option value=""></option>
+            <option value="2010/lato">2010/lato</option>
+            <option value="2010/zima">2010/zima</option>
+            <option value="2011/lato">2011/lato</option>
+            <option value="2011/zima">2011/zima</option>
+            <option value="2012/lato">2012/lato</option>
+            <option value="2012/zima">2012/zima</option>
+            <option value="2013/lato">2013/lato</option>
+            <option value="2013/zima">2013/zima</option>
+            <option value="2014/lato">2014/lato</option>
+            <option value="2014/zima">2014/zima</option>
+            <option value="2015/lato">2015/lato</option>
+            <option value="2015/zima">2015/zima</option>
+            <option value="2016/lato">2016/lato</option>
+            <option value="2016/zima">2016/zima</option>
+            <option value="2017/lato">2017/lato</option>
+            <option value="2017/zima">2017/zima</option>
+            <option value="2018/lato">2018/lato</option>
+            <option value="2018/zima">2018/zima</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" >
+          <label class="col-md-2 control-label">Status weryfikacji</label>
+          <div class="col-md-10">
+            <select name="veryfication" id="" [(ngModel)]="user.veryfication" class="form-control" [disabled]="canChange()">
+              <option value=""></option>
+              <option value="brak">brak</option>
+              <option value="pełna">pełna</option>
+              <option value="warunkowa">warunkowa</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group" >
+          <label class="col-md-2 control-label">Status instuktora</label>
+          <div class="col-md-10">
+            <select name="status" id="" [(ngModel)]="user.status" class="form-control" [disabled]="canChange()">
+              <option value=""></option>
+              <option value="aktywny">aktywny</option>
+              <option value="nie aktywny">nie aktywny</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group" >
+          <label class="col-md-2 control-label">Hufiec</label>
+          <div class="col-md-10">
+            <input [(ngModel)]="user.hufiec" name="hufiec" placeholder="hufiec" type="text" class="form-control" [disabled]="canChange()">
+          </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <button *ngIf="canSee()" type="submit"class="btn btn-raised btn-primary pull-right">Zapisz</button>
+  </form>
+</div>
