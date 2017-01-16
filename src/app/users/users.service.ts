@@ -34,6 +34,11 @@ export class UsersService {
     .catch( this.handleError );
   }
 
+  getInspektorat() {
+    return this.http.get(this.url + 'inspektorat')
+            .map( (response: Response) => response.json())
+            .catch( this.handleError);
+  }
 
   private handleError( error: any){
     let msg = `Status code ${error.status} na url ${error.url}`;

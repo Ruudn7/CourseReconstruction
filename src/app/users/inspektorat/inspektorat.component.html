@@ -19,4 +19,18 @@
             <button type="submit" class="btn btn-raised btn-success pull-right">Zapisz</button>
         </form>
       </div>
-      
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <td>Nazwa</td>
+            <td>Siedziba</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inspektor of inspektoraty">
+            <td>{{inspektor.name}}</td>
+            <td>{{inspektor.address}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
