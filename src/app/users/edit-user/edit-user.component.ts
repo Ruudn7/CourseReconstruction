@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { ActivatedRoute, Router} from '@angular/router';
+import { UsersService } from '../users.service';
+import { Inspektorat} from '../inspektorat/inspektorat';
 
 @Component({
   selector: 'app-edit-user',
@@ -7,9 +11,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: User;
+
+  private id: any;
+  private inspektoraty: Inspektorat[];
+   // user: User;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  private usersService: UsersService ) { }
 
   ngOnInit() {
+    if(!this.user) 
+      this.route
+        .params
+        .map( params => params['id'])
+        .do(id => this.id = id)
+        .subscribe(id => this.getUser());
+
+
+    this.usersService.getInspektorat()
+        .subscribe( (inspektoraty ) => {
+          this.inspektoraty = inspektoraty
+        });
+
   }
+
+
+  edit(user) {
+    user._id = this.user._id;
+    this.usersService.addUser(user)
+      .subscribe( () => {
+        this.router.navigateByUrl('/users');
+      });
+
+  }
+
+  canSee() {
+    if(this.user._id == localStorage.getItem('id'))
+      return true;
+    else
+      return false;
+  }
+
+  canChange() {
+    if(this.user._id == localStorage.getItem('id')) {
+      console.log('tutaj')
+      return false;
+
+    } else
+      return true;
+  }
+
+  private getUser() {
+    this.usersService.getUser(this.id)
+      .subscribe( (user: User) => this.user = user);
+  }
+
 
 }
