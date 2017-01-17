@@ -22,3 +22,5 @@ export class ChefPipe implements PipeTransform {
 
   return this.responseObject;
 }
+
+}
