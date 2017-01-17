@@ -3,8 +3,8 @@ import { Courses } from '../courses';
 import { User } from '../../users/user';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { CoursesService } from '../courses.service'
-import { UsersService } from '../../users/users.service'
+import { CoursesService } from '../courses.service';
+import { UsersService } from '../../users/users.service';
 
 
 @Component({

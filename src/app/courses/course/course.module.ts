@@ -10,4 +10,4 @@ import { DisableSelectedChefPipe } from './disable-selected-chef.pipe';
   ],
   declarations: [CourseComponent, ChefPipe, DisableSelectedChefPipe]
 })
-export class CourseModule { }
+export class CourseAddModule { }
