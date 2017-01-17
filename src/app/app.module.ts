@@ -54,4 +54,5 @@ import { DisableSelectedChefPipe } from './courses/course/disable-selected-chef.
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

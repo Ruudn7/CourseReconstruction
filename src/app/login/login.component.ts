@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';    // png2-bootstrap/components/alert
+import { AlertModule } from 'ng2-bootstrap/alert'  ;    //  'ng2-bootstrap/ng2-bootstrap'
 import { Router } from '@angular/router';
 import { User } from '../users/user';
 
