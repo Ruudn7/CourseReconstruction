@@ -8,6 +8,6 @@ import { DisableSelectedChefPipe } from './disable-selected-chef.pipe';
   imports: [
     CommonModule
   ],
-  declarations: [ChefPipe, DisableSelectedChefPipe]
+  declarations: [CourseComponent, ChefPipe, DisableSelectedChefPipe]
 })
 export class CourseModule { }

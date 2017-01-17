@@ -79,17 +79,17 @@ export class CourseComponent implements OnInit {
     
     //Step 1
     // Date Validation
-    let dateValidation = this.dateValidation(course);
+    let dateValidation = this.dateValidation(course);                           //sprawdza odpowiednie daty kursu
     if(this.isEditAble){
       if(course.numberUser) {
-        let isValid = this.checkValidationNumberUser(course.numberUser, course.instructors);
-        if(isValid.status === true) {
+        let isValid = this.checkValidationNumberUser(course.numberUser, course.instructors);     // sprawdza odpowiednią ilość uczestników/instruktorów
+        if(isValid.status === true) {                                                             //jeżeli tak
           if(this.isEditAble) {
             //check is zatwierdzony == status
-            if(course.status == 'zatwierdzony' && !course.number)
-              this.addNumberCourse(course)
+            if(course.status == 'zatwierdzony' && !course.number)         //czy edytowany czy nowy?
+              this.addNumberCourse(course)                                                //jeżeli był nowy
             else
-              this.updateCourse(course)
+              this.updateCourse(course)                                                    //jeżeli był edutowany
           } else {
             course.status = 'Roboczy';
               this.coursesService
@@ -146,7 +146,7 @@ export class CourseComponent implements OnInit {
     } else if(course.type == 'WKPP') {
         let dateStart = new Date(course.dateFirstStart);
         let newStartDate = new Date(course.dateFirstStart);
-        newStartDate.setDate(newStartDate.getDate() + 3);
+        newStartDate.setDate(newStartDate.getDate() + 3);     //czemu + 3?
         let dateEnd = new Date(course.dateFirstEnd);
 
         let dateTwoStart = new Date(course.dateSecondEnd);
